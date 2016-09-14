@@ -1,0 +1,43 @@
+group 'com.springboot.jsp'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'application'
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+    }
+}
+
+mainClassName = 'com.springboot.jsp.SampleWebJspApplication'
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+    dependencies {
+        testCompile(
+                'org.springframework.boot:spring-boot-starter-test:1.4.0.RELEASE'
+        )
+    }
+
+}

@@ -1,0 +1,17 @@
+archivesBaseName = 'app'
+
+apply plugin: 'war'
+
+war {
+    baseName = 'springboot-jsp'
+    version = '1.0'
+}
+
+dependencies {
+
+    compile(
+            'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE',
+            'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.4'
+    )
+
+}
